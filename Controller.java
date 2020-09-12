@@ -6,45 +6,89 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 public class Controller {
+    //TODO: Fix scientific notation to general form
+    //      Error handling
 
+    @FXML // fx: id=textDisplay
     private Text textDisplay;
-    private String prev = "";
-    private double num;
+    private String numMemory = "";
+    private double number;
     private String operation = "None";
-    private boolean check = false;
 
     private static final String ERROR = "ERROR";
 
-   /* @FXML // fx: id=textDisplay
-    private Text textDisplay;
-    private String prev = "";
-    private double num;
-    private String operation = "None";
-    private boolean check = false;
+    /* @FXML // fx: id=textDisplay
+     private Text textDisplay;
+     private String prev = "";
+     private double num;
+     private String operation = "None";
+     private boolean check = false;
 
-    private static final String ERROR = "ERROR";*/
+     private static final String ERROR = "ERROR";*/
     public void buttonPressedNumber(Event event) {
+        Button button = (Button) event.getSource();
 
+        if (numMemory.length() < 7) {
+            numMemory += button.getText();
+            this.textDisplay.setText(numMemory);
+        }
     }
 
-    public void buttonPressedFloat (Event event){
-
+    public void buttonPressedFloat(Event event) {
+        Button button = (Button) event.getSource();
+        if (numMemory.indexOf(".") == -1) {
+            numMemory += button.getText();
+            this.textDisplay.setText(numMemory);
+        }
     }
 
     public void buttonPressedOperation(Event event) {
+        Button button = (Button) event.getSource();
 
+        operation = button.getText();
+        number = Double.parseDouble(numMemory);
+        System.out.println(number);
+        numMemory = "";
     }
 
     public void buttonPressedEqual(Event event) {
-
+        switch (operation) {
+            case "+":
+                number = Calculator.sumNumbers(number, Double.parseDouble(numMemory));
+                this.textDisplay.setText(formatTextNumber(number));
+                break;
+            case "-":
+                number = Calculator.subNumbers(number, Double.parseDouble(numMemory));
+                this.textDisplay.setText(formatTextNumber(number));
+                break;
+            case "x":
+                number = Calculator.multiNumbers(number, Double.parseDouble(numMemory));
+                System.out.println(number);
+                this.textDisplay.setText(formatTextNumber(number));
+                break;
+            case "/":
+                number = Calculator.divideNumbers(number, Double.parseDouble(numMemory));
+                this.textDisplay.setText(formatTextNumber(number));
+                break;
+            default:
+                this.textDisplay.setText(numMemory);
+                break;
+        }
+        numMemory = "";
     }
 
-    public void buttonPressedPercentage(Event event) {
-        double num = Double.parseDouble(prev);
-        num = Calculator.percentage(num);
-        prev = Double.toString(num);
+    private String formatTextNumber(double number) {
+        String text = Double.toString(number);
 
+        if (text.lastIndexOf(".0") > text.length() - 3) {
+            return text.substring(0, text.indexOf("."));
+        } else if (text.length() > 7) {
+            return text.substring(0, 6);
+        } else {
+            return text;
+        }
     }
+
 /*
     public void buttonPressedNumber(Event event) {
         Button button = (Button) event.getSource();

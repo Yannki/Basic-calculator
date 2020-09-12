@@ -1,4 +1,4 @@
-package sample;
+/*package sample;
 
 import java.util.Scanner;
 
@@ -14,4 +14,4 @@ public class CalculatorPrototype {
     public String equal(String text){
 
     }
-}
+}*/
