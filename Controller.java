@@ -7,7 +7,6 @@ import javafx.scene.text.Text;
 
 public class Controller {
 
-    @FXML // fx: id=textDisplay
     private Text textDisplay;
     private String prev = "";
     private double num;
@@ -16,6 +15,37 @@ public class Controller {
 
     private static final String ERROR = "ERROR";
 
+   /* @FXML // fx: id=textDisplay
+    private Text textDisplay;
+    private String prev = "";
+    private double num;
+    private String operation = "None";
+    private boolean check = false;
+
+    private static final String ERROR = "ERROR";*/
+    public void buttonPressedNumber(Event event) {
+
+    }
+
+    public void buttonPressedFloat (Event event){
+
+    }
+
+    public void buttonPressedOperation(Event event) {
+
+    }
+
+    public void buttonPressedEqual(Event event) {
+
+    }
+
+    public void buttonPressedPercentage(Event event) {
+        double num = Double.parseDouble(prev);
+        num = Calculator.percentage(num);
+        prev = Double.toString(num);
+
+    }
+/*
     public void buttonPressedNumber(Event event) {
         Button button = (Button) event.getSource();
         if (check) {
@@ -85,5 +115,5 @@ public class Controller {
         num = Calculator.percentage(num);
         prev = Double.toString(num);
 
-    }
+    }*/
 }
