@@ -75,7 +75,8 @@
                 </Lighting>
             </effect>
         </Button>
-        <Button layoutX="260.0" layoutY="154.0" mnemonicParsing="false" onMousePressed="#buttonPressedEqual" prefHeight="124.0" prefWidth="65.0" text="=" />
+        <Button layoutX="260.0" layoutY="184.0" mnemonicParsing="false" onMousePressed="#buttonPressedEqual" prefHeight="94.0" prefWidth="65.0" text="=" />
+      <Button layoutX="260.0" layoutY="154.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="65.0" text="C" />
         <Label alignment="CENTER" layoutX="8.0" layoutY="4.0" prefHeight="21.0" prefWidth="303.0" text="Yannki's  Basic Calculator" textAlignment="CENTER" textFill="#03a9ff">
             <font>
                 <Font name="System Bold" size="15.0" />

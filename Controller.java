@@ -17,14 +17,6 @@ public class Controller {
 
     private static final String ERROR = "ERROR";
 
-    /* @FXML // fx: id=textDisplay
-     private Text textDisplay;
-     private String prev = "";
-     private double num;
-     private String operation = "None";
-     private boolean check = false;
-
-     private static final String ERROR = "ERROR";*/
     public void buttonPressedNumber(Event event) {
         Button button = (Button) event.getSource();
 
@@ -77,6 +69,12 @@ public class Controller {
         numMemory = "";
     }
 
+    public void buttonRestart(Event event){
+        numMemory = "";
+        number = 0;
+        operation = "None";
+    }
+
     private String formatTextNumber(double number) {
         String text = Double.toString(number);
 
@@ -88,6 +86,15 @@ public class Controller {
             return text;
         }
     }
+
+    /* @FXML // fx: id=textDisplay
+     private Text textDisplay;
+     private String prev = "";
+     private double num;
+     private String operation = "None";
+     private boolean check = false;
+
+     private static final String ERROR = "ERROR";*/
 
 /*
     public void buttonPressedNumber(Event event) {
